@@ -1,43 +1,76 @@
-body {
-    display: flex;
-    width: 1920px;
-    height: 1080px;
-    padding: 40px;
-    flex-direction: column;
-    align-items: center;
-    gap: 46px;
-    flex-shrink: 0;
+/* General Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.navbar {
+body {
     display: flex;
-    width: 1732px;
-    height: 20px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    flex-shrink: 0;
-    color:white;
+    background: #101010;
+    font-family: 'Inter', sans-serif;
+    color: #FFF;
+    overflow-x: hidden;
 }
 
 .container {
     display: flex;
-    width: 1920px;
-    padding: 0px 40px;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    flex: 1 0 0;
-}
-
-.rigth {
-    display: flex;
-    padding: 329.5px 0px 372.5px 0px;
     flex-direction: column;
     align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 70px;
+    gap: 46px;
+    padding: 20px;
+    width: 100%;
+    max-width: 1920px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1732px;
+    padding: 0 20px;
+}
+
+.navbar .time {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.navbar .username {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Content */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 300px;
+    padding: 50px 0;
+    border-radius: 20px;
     background: #1364FF;
+}
+
+.right .text {
+    font-size: 6rem;
+    font-weight: 900;
+    text-align: center;
 }
 
 .left {
@@ -45,82 +78,155 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    flex: 1 0 0;
-    align-self: stretch;
+    gap: 20px;
+    flex: 1 1 300px;
 }
 
-.logtime {
-    color: #FFF;
-    text-align: center;
-    /* leading-trim: both;
-    text-edge: cap; */
-    font-family: Inter;
-    font-size: 318.343px;
-    font-style: normal;
-    font-weight: 900;
-    line-height: normal;
-}
-
-.progress120 {
+/* Progress Card */
+.progress {
     display: flex;
-    padding: 80px 40px;
     flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    gap: 100px;
-    flex: 1 0 0;
-    align-self: stretch;
-    border-radius: 70px;
-    background-color: #FFF;
-}
-
-.todaysgoal {
-    display: flex;
-    padding: 45.749px 53.973px 45.749px 48.179px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 110.761px;
-    align-self: stretch;
-    border-radius: 70px;
-    background: var(--yellow-300, #FDE047);
-}
-
-.text {
-    width: 686px;
-    height: 61.058px;
-}
-
-.road {
-    color: var(--gray-400, #9CA3AF);
-    /* leading-trim: both;
-    text-edge: cap; */
-    font-family: Inter;
-    font-size: 23.462px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.pace {
+    padding: 40px 20px;
+    background: #FFF;
     color: #000;
-    /* leading-trim: both;
-    text-edge: cap; */
-    font-family: Inter;
-    font-size: 28.154px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    border-radius: 30px;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px;
 }
 
-.days {
+.progress h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.progress .status {
+    font-style: italic;
+    color: green;
+}
+
+.dots {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+
+.dot.filled {
+    background-color: darkgreen;
+}
+
+/* Goal Card */
+.goal {
     display: flex;
-    height: 300px;
+    flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
-    align-content: flex-start;
-    gap: 15px;
-    align-self: stretch;
-    flex-wrap: wrap;
+    padding: 20px;
+    background: #FDE047;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 400px;
 }
 
+.goal h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.goal p {
+    font-size: 1rem;
+}
+
+.progress-bar {
+    position: relative;
+    background-color: lightgray;
+    border-radius: 10px;
+    height: 20px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.progress-bar .progress-completed {
+    background-color: black;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}
+
+.progress-label {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 0.8rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .right .text {
+        font-size: 5rem;
+    }
+    .navbar .username {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar .username {
+        font-size: 1.5rem;
+    }
+    .right .text {
+        font-size: 4rem;
+    }
+    .progress, .goal {
+        max-width: 300px;
+        padding: 30px 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .navbar .time {
+        width: 100%;
+    }
+    .content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .right .text {
+        font-size: 3rem;
+    }
+    .progress, .goal {
+        max-width: 100%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar .username {
+        font-size: 1.2rem;
+    }
+    .right .text {
+        font-size: 2.5rem;
+    }
+    .progress h2, .goal h2 {
+        font-size: 1.3rem;
+    }
+    .progress p, .goal p {
+        font-size: 0.9rem;
+    }
+    .progress-bar {
+        height: 15px;
+    }
+}
